@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Homework Planner</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="top">
+  <h1>Homework planner</h1>
+  <div class="tools">
+    <button id="themeBtn" class="ghost" aria-label="Switch light/dark theme">Theme</button>
+    <button id="exportBtn" class="ghost">Export</button>
+    <label class="ghost btn">Import<input type="file" id="importFile" accept=".json" hidden></label>
+  </div>
+</header>
+
+<main>
+  <section class="card cal" aria-label="Calendar">
+    <div class="cal-head">
+      <button id="prev" class="ghost sq" aria-label="Previous month">‹</button>
+      <h2 id="monthLabel"></h2>
+      <button id="next" class="ghost sq" aria-label="Next month">›</button>
+      <button id="todayBtn" class="ghost">Today</button>
+    </div>
+    <div class="dow" id="dow"></div>
+    <div class="grid" id="grid"></div>
+  </section>
+
+  <section class="panel">
+    <form id="form" class="card" autocomplete="off">
+      <h2 id="formTitle">New homework</h2>
+      <input id="title" required maxlength="120" placeholder="What do you need to do?">
+      <div class="row">
+        <input id="subject" list="subjects" maxlength="30" placeholder="Subject">
+        <datalist id="subjects"></datalist>
+        <input id="date" type="date" required aria-label="Due date">
+        <select id="priority" aria-label="Priority">
+          <option value="1">Low</option>
+          <option value="2" selected>Normal</option>
+          <option value="3">High</option>
+        </select>
+      </div>
+      <textarea id="notes" rows="2" placeholder="Notes (optional)"></textarea>
+      <div class="row">
+        <button id="saveBtn" class="primary" type="submit">Add homework</button>
+        <button id="cancelBtn" class="ghost" type="button" hidden>Cancel edit</button>
+      </div>
+    </form>
+
+    <div class="card">
+      <div class="list-head">
+        <h2 id="listTitle"></h2>
+        <div class="seg" id="seg" role="tablist">
+          <button data-mode="day" class="on">Day</button>
+          <button data-mode="upcoming">Upcoming</button>
+          <button data-mode="all">All</button>
+        </div>
+      </div>
+      <input id="search" type="search" placeholder="Search title, subject or notes">
+      <div class="progress" aria-hidden="true"><div id="bar"></div></div>
+      <p id="stats" class="muted"></p>
+      <ul id="list"></ul>
+    </div>
+  </section>
+</main>
+<script src="script.js"></script>
+</body>
+</html>
