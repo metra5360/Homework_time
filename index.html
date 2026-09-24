@@ -1,67 +1,67 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="uk">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Homework Planner</title>
+<title>Планувальник домашніх завдань</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Onest:wght@400;600;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
 <header class="top">
-  <h1>Homework planner</h1>
+  <h1>Планувальник домашніх завдань</h1>
   <div class="tools">
-    <button id="themeBtn" class="ghost" aria-label="Switch light/dark theme">Theme</button>
-    <button id="exportBtn" class="ghost">Export</button>
-    <label class="ghost btn">Import<input type="file" id="importFile" accept=".json" hidden></label>
+    <button id="themeBtn" class="ghost" aria-label="Змінити світлу або темну тему">Тема</button>
+    <button id="exportBtn" class="ghost">Експорт</button>
+    <label class="ghost btn">Імпорт<input type="file" id="importFile" accept=".json" hidden></label>
   </div>
 </header>
-
+ 
 <main>
-  <section class="card cal" aria-label="Calendar">
+  <section class="card cal" aria-label="Календар">
     <div class="cal-head">
-      <button id="prev" class="ghost sq" aria-label="Previous month">‹</button>
+      <button id="prev" class="ghost sq" aria-label="Попередній місяць">‹</button>
       <h2 id="monthLabel"></h2>
-      <button id="next" class="ghost sq" aria-label="Next month">›</button>
-      <button id="todayBtn" class="ghost">Today</button>
+      <button id="next" class="ghost sq" aria-label="Наступний місяць">›</button>
+      <button id="todayBtn" class="ghost">Сьогодні</button>
     </div>
     <div class="dow" id="dow"></div>
     <div class="grid" id="grid"></div>
   </section>
-
+ 
   <section class="panel">
     <form id="form" class="card" autocomplete="off">
-      <h2 id="formTitle">New homework</h2>
-      <input id="title" required maxlength="120" placeholder="What do you need to do?">
+      <h2 id="formTitle">Нове завдання</h2>
+      <input id="title" required maxlength="120" placeholder="Що потрібно зробити?">
       <div class="row">
-        <input id="subject" list="subjects" maxlength="30" placeholder="Subject">
+        <input id="subject" list="subjects" maxlength="30" placeholder="Предмет">
         <datalist id="subjects"></datalist>
-        <input id="date" type="date" required aria-label="Due date">
-        <select id="priority" aria-label="Priority">
-          <option value="1">Low</option>
-          <option value="2" selected>Normal</option>
-          <option value="3">High</option>
+        <input id="date" type="date" required aria-label="Термін виконання">
+        <select id="priority" aria-label="Пріоритет">
+          <option value="1">Низький</option>
+          <option value="2" selected>Звичайний</option>
+          <option value="3">Високий</option>
         </select>
       </div>
-      <textarea id="notes" rows="2" placeholder="Notes (optional)"></textarea>
+      <textarea id="notes" rows="2" placeholder="Нотатки (необовʼязково)"></textarea>
       <div class="row">
-        <button id="saveBtn" class="primary" type="submit">Add homework</button>
-        <button id="cancelBtn" class="ghost" type="button" hidden>Cancel edit</button>
+        <button id="saveBtn" class="primary" type="submit">Додати завдання</button>
+        <button id="cancelBtn" class="ghost" type="button" hidden>Скасувати редагування</button>
       </div>
     </form>
-
+ 
     <div class="card">
       <div class="list-head">
         <h2 id="listTitle"></h2>
         <div class="seg" id="seg" role="tablist">
-          <button data-mode="day" class="on">Day</button>
-          <button data-mode="upcoming">Upcoming</button>
-          <button data-mode="all">All</button>
+          <button data-mode="day" class="on">День</button>
+          <button data-mode="upcoming">Найближчі</button>
+          <button data-mode="all">Усі</button>
         </div>
       </div>
-      <input id="search" type="search" placeholder="Search title, subject or notes">
+      <input id="search" type="search" placeholder="Пошук за назвою, предметом або нотатками">
       <div class="progress" aria-hidden="true"><div id="bar"></div></div>
       <p id="stats" class="muted"></p>
       <ul id="list"></ul>
